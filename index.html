@@ -1,15 +1,243 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-  <meta charset="UTF-8" />
-  <title>index</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueUp partners</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        section {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* Animated logo styling */
+        .logo-container {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .logo-text {
+            color: white;
+            font-size: 4rem;
+            text-align: center;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.5s;
+        }
+
+        .light-effect {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg, 
+                rgba(255,255,255,0) 0%, 
+                rgba(255,255,255,0.8) 50%, 
+                rgba(255,255,255,0) 100%
+            );
+            animation: lightSweep 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes lightSweep {
+            0% {
+                left: -100%;
+                opacity: 0.7;
+            }
+            100% {
+                left: 100%;
+                opacity: 0.7;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .top-section .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .middle-section .content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .card {
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .negative-card {
+            background-color: #f0f0f0;
+            color: #555;
+        }
+
+        .positive-card {
+            background-color: white;
+            color: #333;
+        }
+
+        .card h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .card ul {
+            list-style-type: none;
+        }
+
+        .card li {
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .card li::before {
+            content: "•";
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .bottom-section .content {
+            text-align: center;
+            color: white;
+        }
+
+        .bottom-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .bottom-section p {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 2.5rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .card h2 {
+                font-size: 1.5rem;
+            }
+
+            .card li {
+                font-size: 1rem;
+            }
+
+            .bottom-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .bottom-section p {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <h1>
-    index page
-  </h1>
-</body>
+    <!-- Top Section -->
+    <section class="top-section" id="top-section" style="background-image: url('/images/top-blue-back.jpg');">
+        <div class="content">
+            <div class="logo-container">
+                <h1 class="logo-text">블루업 파트너스</h1>
+                <div class="light-effect"></div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Middle Section -->
+    <section class="middle-section" id="middle-section" style="background-image: url('/images/office.jpg');">
+        <div class="content">
+            <div class="card negative-card">
+                <h2>경리 회사원</h2>
+                <ul>
+                    <li>월 최소 200만원의 인건비</li>
+                    <li>전문성 부족</li>
+                    <li>4대보험 + 식비 + 복지 등 부가비용 발생</li>
+                </ul>
+            </div>
+            <div class="card positive-card">
+                <h2>블루업 파트너스</h2>
+                <ul>
+                    <li>월 80만원 부터</li>
+                    <li>급여 인상 없는 업무에 따른 수수료 조정</li>
+                    <li>수준급 실력</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Section -->
+    <section class="bottom-section" id="bottom-section" style="background-image: url('/images/bottom-expert.png');">
+        <div class="content">
+            <h2>블루업 파트너스와 함께하세요</h2>
+            <p>15년 이상 경력의 전문가가 함께합니다.</p>
+        </div>
+    </section>
+</body>
 </html>
+
